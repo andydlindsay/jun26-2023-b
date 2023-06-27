@@ -1,3 +1,5 @@
+/*
+
 // Write a program that takes in an unlimited number of command line arguments and prints out the sum of them. If any argument is not a whole number, skip it. Do not support negative numbers.
 
 // 1. use pseudocode (figure out the logic)
@@ -68,3 +70,18 @@ for (const element of numArray) {
 
 console.log('total', total);
 
+*/
+
+// code repeated below for clarity
+const numArray = process.argv.slice(2);
+let total = 0;
+
+for (const element of numArray) {
+  const num = Number(element);
+
+  if (Number.isInteger(num) && num > 0) {
+    total = total + num;
+  }
+}
+
+console.log('total', total);
