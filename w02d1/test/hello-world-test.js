@@ -1,4 +1,6 @@
-const assert = require('assert');
+// const assert = require('assert');
+const assert = require('chai').assert;
+
 const objectOfFunctions = require('../hello-world');
 
 describe('test our salutations', () => {
@@ -15,6 +17,10 @@ describe('test our salutations', () => {
     const actual = objectOfFunctions.sayGoodbye('Alex 2');
     
     assert.equal(actual, expected);  
+  });
+
+  xit('says please spend all your tickets in class. it makes the class better.', () => {
+    fdgsahjkhfdjskahfdkjdkf();
   });
 
 });
