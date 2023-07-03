@@ -1,0 +1,20 @@
+{
+  "name": "tddwithmochaandchai",
+  "version": "1.0.1",
+  "description": "Some test code to show how to test",
+  "main": "hello-world-test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "LHL",
+    "JoyousInteruptions",
+    "TDD"
+  ],
+  "author": "Nally",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0"
+  }
+}
