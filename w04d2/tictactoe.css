@@ -1,0 +1,17 @@
+body {
+  background-color: darkgray;
+}
+
+td {
+  border: 2px solid black;
+  width: 80px;
+  height: 80px;
+}
+
+.X {
+  background-color: red;
+}
+
+.O {
+  background-color: blue;
+}
