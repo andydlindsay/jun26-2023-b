@@ -5,8 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 <style>
+
+* {
+  border: 1px dashed red;
+  box-sizing: border-box;
+}
+
 html {
-  border: 5px dashed red;
+  /* border: 5px dashed red; */
 }
 
 .container {
@@ -15,8 +21,9 @@ html {
 
 .smiley {
   font-size: 4rem;
-  border: 1px dashed black;
-  width: 65px;
+  margin: 3px;
+  /* border: 1px dashed black; */
+  /* width: 65px; */
 /*   width: 100%; */
   float: left;
 }
@@ -36,7 +43,7 @@ html {
   <main class="container clearfix">
     <div class="smiley smiley-1">&#128546</div>
     <div class="smiley smiley-2">&#9785</div>
-    <div class="smiley smiley-3">&#128553</div>
+    <p class="smiley smiley-3">&#128553</p>
   </main>    
 </body>
 </html>

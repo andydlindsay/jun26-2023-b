@@ -4,14 +4,41 @@
 [] HTML/CSS/jQuery over an Express back-end
 [] Real-time Character Limit
 [] Ajax Calls to avoid page reloads
+[] Responsive Design
 
-# Semantic HTML
+# Semantic HTML 5
 
 <header></header>
 <main>
   <article></article>
 </main>
 <footer></footer>
+
+<a href="http://example.com">Click Me</a>
+
+<div class="class-goes-here">Put Stuff <span id="unique">In It!</span></div>
+
+#
+#
+#
+
+<!-- selector {
+  property: value;
+  property2: value2;
+} -->
+
+span {
+  font-size: 20pt;
+}
+
+#unique {
+  background-color: black;
+}
+
+.class-goes-here {
+  background-color: gray;
+}
+
 
 # Box Model
 
