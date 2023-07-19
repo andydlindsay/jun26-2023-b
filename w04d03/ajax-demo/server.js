@@ -8,6 +8,7 @@ const port = 8002;
 // middleware
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: false }));
+app.use(express.static('public')); // serves up static files from the "public" folder
 
 // GET /food-items
 app.get('/food-items', (req, res) => {
