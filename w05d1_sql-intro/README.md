@@ -111,18 +111,18 @@ SQL is hyper optimized for speed, and so there is an advantage to doing things a
 
 ## count (an aggregate function)
 
-SELECT count(id) 
+SELECT max(id) 
 FROM objectives;
 
 ## a where clause
 
-SELECT question, answer
+SELECT id, question
 FROM objectives
 WHERE type = 'performance';
 
 ## a where clause with AND
 
-SELECT question, answer
+SELECT question
 FROM objectives
 WHERE type = 'performance' AND sort < 5;
 
