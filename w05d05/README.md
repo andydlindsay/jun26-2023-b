@@ -34,7 +34,7 @@
 - Once you know the resources that you'll have, write out the routes that you'll need to perform BREAD operations on those resources
 - Remember RESTful conventions (they make it much easier)
 
-# RESTful Routes Example
+### RESTful Routes Example
 
 | BREAD Verb | HTTP Method | Endpoint |
 |---|---|---|
