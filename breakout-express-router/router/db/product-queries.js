@@ -4,7 +4,7 @@ const getProducts = () => {
   return db.query('SELECT * FROM products;')
     .then((response) => {
       return response.rows;
-    });
+    })
 };
 
 const getProductById = (id) => {

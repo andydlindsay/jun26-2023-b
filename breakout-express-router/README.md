@@ -69,3 +69,11 @@ app.use('/my-routes', myRouterFn(dbConnection));
 
 ### Useful Links
 * [Express Router docs](https://expressjs.com/en/4x/api.html#router)
+
+
+MPA => server-side rendered (server is creating the HTML)
+SPA => client-side rendered (javascript is creating the HTML)
+
+http://localhost:3000/products
+$.get('http://localhost:3000/products')
+<a href="http://localhost:3000/products">Products</a>
