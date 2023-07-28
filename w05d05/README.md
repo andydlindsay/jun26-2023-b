@@ -35,21 +35,27 @@
 - Remember RESTful conventions (they make it much easier)
 
 # RESTful Routes Example
-B GET   /users
-R GET   /users/:id
-E POST  /users/:id
-A POST  /users
-D POST  /users/:id/delete
 
-B GET    /users
-R GET    /users/:id
-E PATCH  /users/:id
-A POST   /users
-D DELETE /users/:id
+| BREAD Verb | HTTP Method | Endpoint |
+|---|---|---|
+| Browse | GET | /users |
+| Read | GET  | /users/:id |
+| Edit | POST | /users/:id |
+| Add | POST | /users |
+| Delete | POST | /users/:id/delete |
 
-PUT - replace a resource completely
-PATCH - replace a piece of resource
-DELETE - deletes a resource
+* Using additional HTTP methods:
+  * PUT - replace a resource completely
+  * PATCH - replace a piece of resource
+  * DELETE - deletes a resource
+
+| BREAD Verb | HTTP Method | Endpoint |
+|---|---|---|
+| Browse | GET | /users |
+| Read | GET  | /users/:id |
+| Edit | PATCH | /users/:id |
+| Add | POST | /users |
+| Delete | DELETE | /users/:id |
 
 ### MVP vs MVD
 - There is a concept in development of an MVP, the Minimum Viable Product
