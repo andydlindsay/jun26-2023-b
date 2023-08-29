@@ -1,0 +1,1083 @@
+  [1m[35m (9.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateAuthors (20230828173014)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "authors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230828173014"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBooks (20230828173552)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (17.8ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "publisher" varchar, "num_pages" integer, "author_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_53d51ce16a"
+FOREIGN KEY ("author_id")
+  REFERENCES "authors" ("id")
+)[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE INDEX "index_books_on_author_id" ON "books" ("author_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230828173552"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-08-28 17:59:53.338568"], ["updated_at", "2023-08-28 17:59:53.338568"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAuthor Create (0.5ms)[0m  [1m[32mINSERT INTO "authors" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Jude"], ["last_name", "Klein"], ["created_at", "2023-08-28 18:00:11.700021"], ["updated_at", "2023-08-28 18:00:11.700021"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAuthor Create (0.8ms)[0m  [1m[32mINSERT INTO "authors" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Yoshie"], ["last_name", "Bergstrom"], ["created_at", "2023-08-28 18:00:11.714268"], ["updated_at", "2023-08-28 18:00:11.714268"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAuthor Create (0.8ms)[0m  [1m[32mINSERT INTO "authors" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Lilia"], ["last_name", "Toy"], ["created_at", "2023-08-28 18:00:11.736154"], ["updated_at", "2023-08-28 18:00:11.736154"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAuthor Create (2.2ms)[0m  [1m[32mINSERT INTO "authors" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Parker"], ["last_name", "Hartmann"], ["created_at", "2023-08-28 18:00:11.769613"], ["updated_at", "2023-08-28 18:00:11.769613"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAuthor Create (0.5ms)[0m  [1m[32mINSERT INTO "authors" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Mohammad"], ["last_name", "Lakin"], ["created_at", "2023-08-28 18:00:11.793402"], ["updated_at", "2023-08-28 18:00:11.793402"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAuthor Create (0.4ms)[0m  [1m[32mINSERT INTO "authors" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Felisha"], ["last_name", "Schulist"], ["created_at", "2023-08-28 18:00:11.799545"], ["updated_at", "2023-08-28 18:00:11.799545"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAuthor Create (0.7ms)[0m  [1m[32mINSERT INTO "authors" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Cleo"], ["last_name", "McLaughlin"], ["created_at", "2023-08-28 18:00:11.826824"], ["updated_at", "2023-08-28 18:00:11.826824"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAuthor Create (0.6ms)[0m  [1m[32mINSERT INTO "authors" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Denver"], ["last_name", "Robel"], ["created_at", "2023-08-28 18:00:11.848805"], ["updated_at", "2023-08-28 18:00:11.848805"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAuthor Create (1.0ms)[0m  [1m[32mINSERT INTO "authors" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Jeromy"], ["last_name", "Hartmann"], ["created_at", "2023-08-28 18:00:11.900670"], ["updated_at", "2023-08-28 18:00:11.900670"]]
+  [1m[36mTRANSACTION (15.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAuthor Create (3.4ms)[0m  [1m[32mINSERT INTO "authors" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Cruz"], ["last_name", "Nicolas"], ["created_at", "2023-08-28 18:00:12.130571"], ["updated_at", "2023-08-28 18:00:12.130571"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAuthor Create (0.7ms)[0m  [1m[32mINSERT INTO "authors" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Mohamed"], ["last_name", "Reichert"], ["created_at", "2023-08-28 18:00:12.161409"], ["updated_at", "2023-08-28 18:00:12.161409"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAuthor Create (0.5ms)[0m  [1m[32mINSERT INTO "authors" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Terrence"], ["last_name", "Pouros"], ["created_at", "2023-08-28 18:00:12.167808"], ["updated_at", "2023-08-28 18:00:12.167808"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAuthor Create (6.4ms)[0m  [1m[32mINSERT INTO "authors" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Frances"], ["last_name", "Trantow"], ["created_at", "2023-08-28 18:00:12.177820"], ["updated_at", "2023-08-28 18:00:12.177820"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAuthor Create (1.3ms)[0m  [1m[32mINSERT INTO "authors" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Lynda"], ["last_name", "Kozey"], ["created_at", "2023-08-28 18:00:12.195561"], ["updated_at", "2023-08-28 18:00:12.195561"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAuthor Create (0.7ms)[0m  [1m[32mINSERT INTO "authors" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Shandi"], ["last_name", "Greenfelder"], ["created_at", "2023-08-28 18:00:12.231745"], ["updated_at", "2023-08-28 18:00:12.231745"]]
+  [1m[36mTRANSACTION (50.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAuthor Create (5.3ms)[0m  [1m[32mINSERT INTO "authors" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Ron"], ["last_name", "Bergstrom"], ["created_at", "2023-08-28 18:00:12.565790"], ["updated_at", "2023-08-28 18:00:12.565790"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAuthor Create (1.6ms)[0m  [1m[32mINSERT INTO "authors" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Robin"], ["last_name", "Towne"], ["created_at", "2023-08-28 18:00:12.656721"], ["updated_at", "2023-08-28 18:00:12.656721"]]
+  [1m[36mTRANSACTION (9.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAuthor Create (0.9ms)[0m  [1m[32mINSERT INTO "authors" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Casimira"], ["last_name", "Parisian"], ["created_at", "2023-08-28 18:00:12.861915"], ["updated_at", "2023-08-28 18:00:12.861915"]]
+  [1m[36mTRANSACTION (9.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAuthor Create (0.9ms)[0m  [1m[32mINSERT INTO "authors" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Darren"], ["last_name", "Witting"], ["created_at", "2023-08-28 18:00:12.958363"], ["updated_at", "2023-08-28 18:00:12.958363"]]
+  [1m[36mTRANSACTION (56.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAuthor Create (0.6ms)[0m  [1m[32mINSERT INTO "authors" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Ingeborg"], ["last_name", "Hills"], ["created_at", "2023-08-28 18:00:13.026701"], ["updated_at", "2023-08-28 18:00:13.026701"]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.0ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "No Country for Old Men"], ["publisher", "Nonesuch Press"], ["num_pages", 278], ["author_id", 10], ["created_at", "2023-08-28 18:00:13.695670"], ["updated_at", "2023-08-28 18:00:13.695670"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.5ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Fair Stood the Wind for France"], ["publisher", "Atheneum Publishers"], ["num_pages", 499], ["author_id", 7], ["created_at", "2023-08-28 18:00:13.978299"], ["updated_at", "2023-08-28 18:00:13.978299"]]
+  [1m[36mTRANSACTION (26.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.2ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Nine Coaches Waiting"], ["publisher", "Paulist Press"], ["num_pages", 46], ["author_id", 2], ["created_at", "2023-08-28 18:00:14.036777"], ["updated_at", "2023-08-28 18:00:14.036777"]]
+  [1m[36mTRANSACTION (7.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (3.5ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Fair Stood the Wind for France"], ["publisher", "Bantam Books"], ["num_pages", 469], ["author_id", 12], ["created_at", "2023-08-28 18:00:14.155662"], ["updated_at", "2023-08-28 18:00:14.155662"]]
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.0ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Jesting Pilate"], ["publisher", "Barrie & Jenkins"], ["num_pages", 150], ["author_id", 4], ["created_at", "2023-08-28 18:00:14.302868"], ["updated_at", "2023-08-28 18:00:14.302868"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.5ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "I Will Fear No Evil"], ["publisher", "Paulist Press"], ["num_pages", 408], ["author_id", 8], ["created_at", "2023-08-28 18:00:14.317852"], ["updated_at", "2023-08-28 18:00:14.317852"]]
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Daffodil Sky"], ["publisher", "McClelland and Stewart"], ["num_pages", 286], ["author_id", 7], ["created_at", "2023-08-28 18:00:14.403063"], ["updated_at", "2023-08-28 18:00:14.403063"]]
+  [1m[36mTRANSACTION (33.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Let Us Now Praise Famous Men"], ["publisher", "Anova Books"], ["num_pages", 170], ["author_id", 10], ["created_at", "2023-08-28 18:00:14.489933"], ["updated_at", "2023-08-28 18:00:14.489933"]]
+  [1m[36mTRANSACTION (14.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "East of Eden"], ["publisher", "George Newnes"], ["num_pages", 429], ["author_id", 14], ["created_at", "2023-08-28 18:00:14.529118"], ["updated_at", "2023-08-28 18:00:14.529118"]]
+  [1m[36mTRANSACTION (7.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (3.0ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Mother Night"], ["publisher", "Bella Books"], ["num_pages", 223], ["author_id", 1], ["created_at", "2023-08-28 18:00:14.592094"], ["updated_at", "2023-08-28 18:00:14.592094"]]
+  [1m[36mTRANSACTION (99.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "This Lime Tree Bower"], ["publisher", "O'Reilly Media"], ["num_pages", 218], ["author_id", 16], ["created_at", "2023-08-28 18:00:14.762117"], ["updated_at", "2023-08-28 18:00:14.762117"]]
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.9ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Of Human Bondage"], ["publisher", "Haynes Manuals"], ["num_pages", 186], ["author_id", 8], ["created_at", "2023-08-28 18:00:14.833238"], ["updated_at", "2023-08-28 18:00:14.833238"]]
+  [1m[36mTRANSACTION (15.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.0ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Some Buried Caesar"], ["publisher", "New Village Press"], ["num_pages", 54], ["author_id", 10], ["created_at", "2023-08-28 18:00:15.028124"], ["updated_at", "2023-08-28 18:00:15.028124"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.3ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "That Good Night"], ["publisher", "Taylor & Francis"], ["num_pages", 217], ["author_id", 17], ["created_at", "2023-08-28 18:00:15.079383"], ["updated_at", "2023-08-28 18:00:15.079383"]]
+  [1m[36mTRANSACTION (53.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.3ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Time of our Darkness"], ["publisher", "Firebrand Books"], ["num_pages", 350], ["author_id", 9], ["created_at", "2023-08-28 18:00:15.264034"], ["updated_at", "2023-08-28 18:00:15.264034"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Jacob Have I Loved"], ["publisher", "Del Rey Books"], ["num_pages", 7], ["author_id", 2], ["created_at", "2023-08-28 18:00:15.330738"], ["updated_at", "2023-08-28 18:00:15.330738"]]
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.1ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "It's a Battlefield"], ["publisher", "Lethe Press"], ["num_pages", 24], ["author_id", 13], ["created_at", "2023-08-28 18:00:15.591403"], ["updated_at", "2023-08-28 18:00:15.591403"]]
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.9ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Time of our Darkness"], ["publisher", "Karadi Tales"], ["num_pages", 97], ["author_id", 12], ["created_at", "2023-08-28 18:00:15.610895"], ["updated_at", "2023-08-28 18:00:15.610895"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (8.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "All Passion Spent"], ["publisher", "Mandrake Press"], ["num_pages", 232], ["author_id", 1], ["created_at", "2023-08-28 18:00:15.643013"], ["updated_at", "2023-08-28 18:00:15.643013"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.3ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "This Lime Tree Bower"], ["publisher", "Papadakis Publisher"], ["num_pages", 466], ["author_id", 1], ["created_at", "2023-08-28 18:00:15.674156"], ["updated_at", "2023-08-28 18:00:15.674156"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (164.9ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "I Sing the Body Electric"], ["publisher", "Earthscan"], ["num_pages", 80], ["author_id", 8], ["created_at", "2023-08-28 18:00:15.710216"], ["updated_at", "2023-08-28 18:00:15.710216"]]
+  [1m[36mTRANSACTION (24.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (3.8ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Violent Bear It Away"], ["publisher", "Ignatius Press"], ["num_pages", 440], ["author_id", 7], ["created_at", "2023-08-28 18:00:15.966356"], ["updated_at", "2023-08-28 18:00:15.966356"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.8ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The House of Mirth"], ["publisher", "Boydell & Brewer"], ["num_pages", 214], ["author_id", 1], ["created_at", "2023-08-28 18:00:16.066450"], ["updated_at", "2023-08-28 18:00:16.066450"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.3ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Moon by Night"], ["publisher", "Earthscan"], ["num_pages", 191], ["author_id", 15], ["created_at", "2023-08-28 18:00:16.103627"], ["updated_at", "2023-08-28 18:00:16.103627"]]
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.8ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Arms and the Man"], ["publisher", "HMSO"], ["num_pages", 3], ["author_id", 4], ["created_at", "2023-08-28 18:00:16.147493"], ["updated_at", "2023-08-28 18:00:16.147493"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.1ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "As I Lay Dying"], ["publisher", "Salt Publishing"], ["num_pages", 460], ["author_id", 8], ["created_at", "2023-08-28 18:00:16.169941"], ["updated_at", "2023-08-28 18:00:16.169941"]]
+  [1m[36mTRANSACTION (33.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (5.1ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Fair Stood the Wind for France"], ["publisher", "Broadview Press"], ["num_pages", 371], ["author_id", 12], ["created_at", "2023-08-28 18:00:16.402893"], ["updated_at", "2023-08-28 18:00:16.402893"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "A Swiftly Tilting Planet"], ["publisher", "Pecan Grove Press"], ["num_pages", 221], ["author_id", 16], ["created_at", "2023-08-28 18:00:16.437558"], ["updated_at", "2023-08-28 18:00:16.437558"]]
+  [1m[36mTRANSACTION (56.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "After Many a Summer Dies the Swan"], ["publisher", "Flame Tree Publishing"], ["num_pages", 314], ["author_id", 2], ["created_at", "2023-08-28 18:00:16.570952"], ["updated_at", "2023-08-28 18:00:16.570952"]]
+  [1m[36mTRANSACTION (13.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "I Know Why the Caged Bird Sings"], ["publisher", "Sams Publishing"], ["num_pages", 75], ["author_id", 17], ["created_at", "2023-08-28 18:00:16.705536"], ["updated_at", "2023-08-28 18:00:16.705536"]]
+  [1m[36mTRANSACTION (34.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (30.0ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Golden Bowl"], ["publisher", "New Village Press"], ["num_pages", 177], ["author_id", 14], ["created_at", "2023-08-28 18:00:16.935931"], ["updated_at", "2023-08-28 18:00:16.935931"]]
+  [1m[36mTRANSACTION (137.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Rosemary Sutcliff"], ["publisher", "Bison Books"], ["num_pages", 261], ["author_id", 15], ["created_at", "2023-08-28 18:00:17.108928"], ["updated_at", "2023-08-28 18:00:17.108928"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Carrion Comfort"], ["publisher", "Mark Batty Publisher"], ["num_pages", 376], ["author_id", 7], ["created_at", "2023-08-28 18:00:17.139473"], ["updated_at", "2023-08-28 18:00:17.139473"]]
+  [1m[36mTRANSACTION (21.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.0ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Absalom, Absalom!"], ["publisher", "UCL Press"], ["num_pages", 388], ["author_id", 4], ["created_at", "2023-08-28 18:00:17.190061"], ["updated_at", "2023-08-28 18:00:17.190061"]]
+  [1m[36mTRANSACTION (8.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.3ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Last Temptation"], ["publisher", "Ian Allan Publishing"], ["num_pages", 356], ["author_id", 2], ["created_at", "2023-08-28 18:00:17.302904"], ["updated_at", "2023-08-28 18:00:17.302904"]]
+  [1m[36mTRANSACTION (39.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (10.0ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Consider the Lilies"], ["publisher", "Ellora's Cave"], ["num_pages", 418], ["author_id", 4], ["created_at", "2023-08-28 18:00:17.405479"], ["updated_at", "2023-08-28 18:00:17.405479"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.8ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Wealth of Nations"], ["publisher", "Black Library"], ["num_pages", 29], ["author_id", 2], ["created_at", "2023-08-28 18:00:17.437634"], ["updated_at", "2023-08-28 18:00:17.437634"]]
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.3ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The House of Mirth"], ["publisher", "Felony & Mayhem Press"], ["num_pages", 140], ["author_id", 8], ["created_at", "2023-08-28 18:00:17.659264"], ["updated_at", "2023-08-28 18:00:17.659264"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (10.2ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Specimen Days"], ["publisher", "Charles Scribner's Sons"], ["num_pages", 313], ["author_id", 8], ["created_at", "2023-08-28 18:00:17.763356"], ["updated_at", "2023-08-28 18:00:17.763356"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Infinite Jest"], ["publisher", "Peace Hill Press"], ["num_pages", 363], ["author_id", 11], ["created_at", "2023-08-28 18:00:17.868028"], ["updated_at", "2023-08-28 18:00:17.868028"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.9ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Arms and the Man"], ["publisher", "HarperCollins"], ["num_pages", 191], ["author_id", 7], ["created_at", "2023-08-28 18:00:17.878217"], ["updated_at", "2023-08-28 18:00:17.878217"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Ego Dominus Tuus"], ["publisher", "Academic Press"], ["num_pages", 118], ["author_id", 8], ["created_at", "2023-08-28 18:00:17.885146"], ["updated_at", "2023-08-28 18:00:17.885146"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Number the Stars"], ["publisher", "Target Books"], ["num_pages", 323], ["author_id", 18], ["created_at", "2023-08-28 18:00:17.901448"], ["updated_at", "2023-08-28 18:00:17.901448"]]
+  [1m[36mTRANSACTION (7.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Cricket on the Hearth"], ["publisher", "St. Martin's Press"], ["num_pages", 311], ["author_id", 2], ["created_at", "2023-08-28 18:00:17.927257"], ["updated_at", "2023-08-28 18:00:17.927257"]]
+  [1m[36mTRANSACTION (16.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (41.1ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Things Fall Apart"], ["publisher", "Penguin Books"], ["num_pages", 421], ["author_id", 6], ["created_at", "2023-08-28 18:00:17.999471"], ["updated_at", "2023-08-28 18:00:17.999471"]]
+  [1m[36mTRANSACTION (61.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (3.2ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "A Farewell to Arms"], ["publisher", "City Lights Publishers"], ["num_pages", 468], ["author_id", 19], ["created_at", "2023-08-28 18:00:18.232909"], ["updated_at", "2023-08-28 18:00:18.232909"]]
+  [1m[36mTRANSACTION (22.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (13.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "For a Breath I Tarry"], ["publisher", "Holland Park Press"], ["num_pages", 78], ["author_id", 19], ["created_at", "2023-08-28 18:00:18.370061"], ["updated_at", "2023-08-28 18:00:18.370061"]]
+  [1m[36mTRANSACTION (22.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.9ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Little Foxes"], ["publisher", "Dedalus Books"], ["num_pages", 468], ["author_id", 7], ["created_at", "2023-08-28 18:00:18.512255"], ["updated_at", "2023-08-28 18:00:18.512255"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "If Not Now, When?"], ["publisher", "Tammi"], ["num_pages", 87], ["author_id", 7], ["created_at", "2023-08-28 18:00:18.542353"], ["updated_at", "2023-08-28 18:00:18.542353"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.8ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "A Catskill Eagle"], ["publisher", "Casemate Publishers"], ["num_pages", 475], ["author_id", 4], ["created_at", "2023-08-28 18:00:18.564089"], ["updated_at", "2023-08-28 18:00:18.564089"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (6.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "O Pioneers!"], ["publisher", "Ian Allan Publishing"], ["num_pages", 95], ["author_id", 15], ["created_at", "2023-08-28 18:00:18.578479"], ["updated_at", "2023-08-28 18:00:18.578479"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.8ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Golden Bowl"], ["publisher", "Ten Speed Press"], ["num_pages", 221], ["author_id", 2], ["created_at", "2023-08-28 18:00:18.617160"], ["updated_at", "2023-08-28 18:00:18.617160"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.9ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Moab Is My Washpot"], ["publisher", "McGraw Hill Financial"], ["num_pages", 403], ["author_id", 11], ["created_at", "2023-08-28 18:00:18.687521"], ["updated_at", "2023-08-28 18:00:18.687521"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (10.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "If I Forget Thee Jerusalem"], ["publisher", "O'Reilly Media"], ["num_pages", 73], ["author_id", 7], ["created_at", "2023-08-28 18:00:18.706794"], ["updated_at", "2023-08-28 18:00:18.706794"]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (19.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "A Scanner Darkly"], ["publisher", "Bloodaxe Books"], ["num_pages", 193], ["author_id", 13], ["created_at", "2023-08-28 18:00:18.770619"], ["updated_at", "2023-08-28 18:00:18.770619"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (14.8ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Yellow Meads of Asphodel"], ["publisher", "Virago Press"], ["num_pages", 431], ["author_id", 17], ["created_at", "2023-08-28 18:00:18.838205"], ["updated_at", "2023-08-28 18:00:18.838205"]]
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Precious Bane"], ["publisher", "Dedalus Books"], ["num_pages", 405], ["author_id", 16], ["created_at", "2023-08-28 18:00:18.928304"], ["updated_at", "2023-08-28 18:00:18.928304"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.8ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Time of our Darkness"], ["publisher", "Gay Men's Press"], ["num_pages", 204], ["author_id", 5], ["created_at", "2023-08-28 18:00:18.965520"], ["updated_at", "2023-08-28 18:00:18.965520"]]
+  [1m[36mTRANSACTION (8.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (3.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Road Less Traveled"], ["publisher", "Cloverdale Corporation"], ["num_pages", 97], ["author_id", 9], ["created_at", "2023-08-28 18:00:19.107929"], ["updated_at", "2023-08-28 18:00:19.107929"]]
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (19.8ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "All the King's Men"], ["publisher", "University of California Press"], ["num_pages", 392], ["author_id", 14], ["created_at", "2023-08-28 18:00:19.151804"], ["updated_at", "2023-08-28 18:00:19.151804"]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.8ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "East of Eden"], ["publisher", "T & T Clark"], ["num_pages", 227], ["author_id", 15], ["created_at", "2023-08-28 18:00:19.204746"], ["updated_at", "2023-08-28 18:00:19.204746"]]
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Road Less Traveled"], ["publisher", "Hamish Hamilton"], ["num_pages", 379], ["author_id", 1], ["created_at", "2023-08-28 18:00:19.229934"], ["updated_at", "2023-08-28 18:00:19.229934"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Painted Veil"], ["publisher", "NavPress"], ["num_pages", 27], ["author_id", 14], ["created_at", "2023-08-28 18:00:19.241967"], ["updated_at", "2023-08-28 18:00:19.241967"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Last Enemy"], ["publisher", "Ladybird Books"], ["num_pages", 152], ["author_id", 10], ["created_at", "2023-08-28 18:00:19.246793"], ["updated_at", "2023-08-28 18:00:19.246793"]]
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "His Dark Materials"], ["publisher", "Applewood Books"], ["num_pages", 322], ["author_id", 14], ["created_at", "2023-08-28 18:00:19.326158"], ["updated_at", "2023-08-28 18:00:19.326158"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.8ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "To Sail Beyond the Sunset"], ["publisher", "Matthias Media"], ["num_pages", 383], ["author_id", 11], ["created_at", "2023-08-28 18:00:19.366676"], ["updated_at", "2023-08-28 18:00:19.366676"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Ah, Wilderness!"], ["publisher", "Happy House"], ["num_pages", 435], ["author_id", 3], ["created_at", "2023-08-28 18:00:19.376395"], ["updated_at", "2023-08-28 18:00:19.376395"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Last Enemy"], ["publisher", "Addison-Wesley"], ["num_pages", 32], ["author_id", 17], ["created_at", "2023-08-28 18:00:19.397084"], ["updated_at", "2023-08-28 18:00:19.397084"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.2ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "O Jerusalem!"], ["publisher", "Atlantic Books"], ["num_pages", 197], ["author_id", 14], ["created_at", "2023-08-28 18:00:19.408589"], ["updated_at", "2023-08-28 18:00:19.408589"]]
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.8ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Bury My Heart at Wounded Knee"], ["publisher", "Naiad Press"], ["num_pages", 189], ["author_id", 12], ["created_at", "2023-08-28 18:00:19.427119"], ["updated_at", "2023-08-28 18:00:19.427119"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.5ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Dance Dance Dance"], ["publisher", "New Village Press"], ["num_pages", 160], ["author_id", 20], ["created_at", "2023-08-28 18:00:19.446355"], ["updated_at", "2023-08-28 18:00:19.446355"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Needle's Eye"], ["publisher", "Holland Park Press"], ["num_pages", 464], ["author_id", 12], ["created_at", "2023-08-28 18:00:19.471981"], ["updated_at", "2023-08-28 18:00:19.471981"]]
+  [1m[36mTRANSACTION (8.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Painted Veil"], ["publisher", "Booktrope"], ["num_pages", 218], ["author_id", 13], ["created_at", "2023-08-28 18:00:19.505135"], ["updated_at", "2023-08-28 18:00:19.505135"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Those Barren Leaves, Thrones, Dominations"], ["publisher", "Penguin Books"], ["num_pages", 263], ["author_id", 10], ["created_at", "2023-08-28 18:00:19.531051"], ["updated_at", "2023-08-28 18:00:19.531051"]]
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "An Instant In The Wind"], ["publisher", "Caister Academic Press"], ["num_pages", 214], ["author_id", 11], ["created_at", "2023-08-28 18:00:19.572512"], ["updated_at", "2023-08-28 18:00:19.572512"]]
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "In Dubious Battle"], ["publisher", "Golden Cockerel Press"], ["num_pages", 126], ["author_id", 3], ["created_at", "2023-08-28 18:00:19.589359"], ["updated_at", "2023-08-28 18:00:19.589359"]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "A Catskill Eagle"], ["publisher", "Central European University Press"], ["num_pages", 24], ["author_id", 15], ["created_at", "2023-08-28 18:00:19.604820"], ["updated_at", "2023-08-28 18:00:19.604820"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.5ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Wind's Twelve Quarters"], ["publisher", "Eerdmans Publishing"], ["num_pages", 469], ["author_id", 13], ["created_at", "2023-08-28 18:00:19.611081"], ["updated_at", "2023-08-28 18:00:19.611081"]]
+  [1m[36mTRANSACTION (8.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (18.8ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Eyeless in Gaza"], ["publisher", "Book League of America"], ["num_pages", 245], ["author_id", 17], ["created_at", "2023-08-28 18:00:19.642295"], ["updated_at", "2023-08-28 18:00:19.642295"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.5ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Wildfire at Midnight"], ["publisher", "New Directions Publishing"], ["num_pages", 321], ["author_id", 10], ["created_at", "2023-08-28 18:00:19.668727"], ["updated_at", "2023-08-28 18:00:19.668727"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.5ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Green Bay Tree"], ["publisher", "Holland Park Press"], ["num_pages", 329], ["author_id", 17], ["created_at", "2023-08-28 18:00:19.699230"], ["updated_at", "2023-08-28 18:00:19.699230"]]
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Where Angels Fear to Tread"], ["publisher", "Unfinished Monument Press"], ["num_pages", 377], ["author_id", 19], ["created_at", "2023-08-28 18:00:19.716551"], ["updated_at", "2023-08-28 18:00:19.716551"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (7.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Ah, Wilderness!"], ["publisher", "Bowes & Bowes"], ["num_pages", 175], ["author_id", 9], ["created_at", "2023-08-28 18:00:19.738677"], ["updated_at", "2023-08-28 18:00:19.738677"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Fear and Trembling"], ["publisher", "Harper & Row"], ["num_pages", 257], ["author_id", 12], ["created_at", "2023-08-28 18:00:19.774689"], ["updated_at", "2023-08-28 18:00:19.774689"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Wives of Bath"], ["publisher", "Mascot Books"], ["num_pages", 271], ["author_id", 20], ["created_at", "2023-08-28 18:00:19.780442"], ["updated_at", "2023-08-28 18:00:19.780442"]]
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.8ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Absalom, Absalom!"], ["publisher", "Hay House"], ["num_pages", 314], ["author_id", 3], ["created_at", "2023-08-28 18:00:19.795873"], ["updated_at", "2023-08-28 18:00:19.795873"]]
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.5ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Sun Also Rises"], ["publisher", "Eel Pie Publishing"], ["num_pages", 315], ["author_id", 2], ["created_at", "2023-08-28 18:00:19.813943"], ["updated_at", "2023-08-28 18:00:19.813943"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Moab Is My Washpot"], ["publisher", "Harvard University Press"], ["num_pages", 126], ["author_id", 20], ["created_at", "2023-08-28 18:00:19.836304"], ["updated_at", "2023-08-28 18:00:19.836304"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (3.3ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Where Angels Fear to Tread"], ["publisher", "Apress"], ["num_pages", 69], ["author_id", 11], ["created_at", "2023-08-28 18:00:19.863321"], ["updated_at", "2023-08-28 18:00:19.863321"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Way Through the Woods"], ["publisher", "Blue Ribbon Books"], ["num_pages", 311], ["author_id", 8], ["created_at", "2023-08-28 18:00:19.875219"], ["updated_at", "2023-08-28 18:00:19.875219"]]
+  [1m[36mTRANSACTION (53.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (3.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Bury My Heart at Wounded Knee"], ["publisher", "Vintage Books at Random House"], ["num_pages", 413], ["author_id", 19], ["created_at", "2023-08-28 18:00:20.005539"], ["updated_at", "2023-08-28 18:00:20.005539"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Cricket on the Hearth"], ["publisher", "Etruscan Press"], ["num_pages", 459], ["author_id", 13], ["created_at", "2023-08-28 18:00:20.051908"], ["updated_at", "2023-08-28 18:00:20.051908"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (11.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Mermaids Singing"], ["publisher", "Fairview Press"], ["num_pages", 172], ["author_id", 14], ["created_at", "2023-08-28 18:00:20.065526"], ["updated_at", "2023-08-28 18:00:20.065526"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.8ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "An Acceptable Time"], ["publisher", "Airiti Press"], ["num_pages", 326], ["author_id", 10], ["created_at", "2023-08-28 18:00:20.093296"], ["updated_at", "2023-08-28 18:00:20.093296"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.5ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Far From the Madding Crowd"], ["publisher", "Ignatius Press"], ["num_pages", 213], ["author_id", 19], ["created_at", "2023-08-28 18:00:20.100697"], ["updated_at", "2023-08-28 18:00:20.100697"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Quo Vadis"], ["publisher", "United States Government Publishing Office"], ["num_pages", 494], ["author_id", 15], ["created_at", "2023-08-28 18:00:20.113202"], ["updated_at", "2023-08-28 18:00:20.113202"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Bury My Heart at Wounded Knee"], ["publisher", "Kodansha"], ["num_pages", 160], ["author_id", 1], ["created_at", "2023-08-28 18:00:20.134902"], ["updated_at", "2023-08-28 18:00:20.134902"]]
+  [1m[36mTRANSACTION (17.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Blood's a Rover"], ["publisher", "Addison-Wesley"], ["num_pages", 73], ["author_id", 9], ["created_at", "2023-08-28 18:00:20.167766"], ["updated_at", "2023-08-28 18:00:20.167766"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "All the King's Men"], ["publisher", "Hamish Hamilton"], ["num_pages", 404], ["author_id", 6], ["created_at", "2023-08-28 18:00:20.189476"], ["updated_at", "2023-08-28 18:00:20.189476"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "A Time to Kill"], ["publisher", "Random House"], ["num_pages", 305], ["author_id", 19], ["created_at", "2023-08-28 18:00:20.198965"], ["updated_at", "2023-08-28 18:00:20.198965"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Ego Dominus Tuus"], ["publisher", "Blackstaff Press"], ["num_pages", 203], ["author_id", 8], ["created_at", "2023-08-28 18:00:20.269691"], ["updated_at", "2023-08-28 18:00:20.269691"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Vanity Fair"], ["publisher", "Pen and Sword Books"], ["num_pages", 4], ["author_id", 9], ["created_at", "2023-08-28 18:00:20.276281"], ["updated_at", "2023-08-28 18:00:20.276281"]]
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.8ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "To Your Scattered Bodies Go"], ["publisher", "Jaico Publishing House"], ["num_pages", 23], ["author_id", 5], ["created_at", "2023-08-28 18:00:20.286306"], ["updated_at", "2023-08-28 18:00:20.286306"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Blithe Spirit"], ["publisher", "Orion Books"], ["num_pages", 495], ["author_id", 3], ["created_at", "2023-08-28 18:00:20.306096"], ["updated_at", "2023-08-28 18:00:20.306096"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Stranger in a Strange Land"], ["publisher", "Oberon Books"], ["num_pages", 296], ["author_id", 19], ["created_at", "2023-08-28 18:00:20.316516"], ["updated_at", "2023-08-28 18:00:20.316516"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Death Be Not Proud"], ["publisher", "New Holland Publishers"], ["num_pages", 28], ["author_id", 20], ["created_at", "2023-08-28 18:00:20.334771"], ["updated_at", "2023-08-28 18:00:20.334771"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.0ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Lathe of Heaven"], ["publisher", "Left Book Club"], ["num_pages", 358], ["author_id", 1], ["created_at", "2023-08-28 18:00:20.406419"], ["updated_at", "2023-08-28 18:00:20.406419"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.5ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Postern of Fate"], ["publisher", "Fairview Press"], ["num_pages", 173], ["author_id", 18], ["created_at", "2023-08-28 18:00:20.412475"], ["updated_at", "2023-08-28 18:00:20.412475"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Clouds of Witness"], ["publisher", "Atheneum Books"], ["num_pages", 184], ["author_id", 8], ["created_at", "2023-08-28 18:00:20.425166"], ["updated_at", "2023-08-28 18:00:20.425166"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Ring of Bright Water"], ["publisher", "G-Unit Books"], ["num_pages", 256], ["author_id", 19], ["created_at", "2023-08-28 18:00:20.431280"], ["updated_at", "2023-08-28 18:00:20.431280"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Heart Is a Lonely Hunter"], ["publisher", "NavPress"], ["num_pages", 359], ["author_id", 4], ["created_at", "2023-08-28 18:00:20.437773"], ["updated_at", "2023-08-28 18:00:20.437773"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Proper Study"], ["publisher", "Canongate Books"], ["num_pages", 434], ["author_id", 6], ["created_at", "2023-08-28 18:00:20.443617"], ["updated_at", "2023-08-28 18:00:20.443617"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Vile Bodies"], ["publisher", "D. Reidel"], ["num_pages", 393], ["author_id", 11], ["created_at", "2023-08-28 18:00:20.449972"], ["updated_at", "2023-08-28 18:00:20.449972"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.5ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "This Side of Paradise"], ["publisher", "Boydell & Brewer"], ["num_pages", 410], ["author_id", 9], ["created_at", "2023-08-28 18:00:20.466159"], ["updated_at", "2023-08-28 18:00:20.466159"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.5ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "A Farewell to Arms"], ["publisher", "Heyday Books"], ["num_pages", 420], ["author_id", 2], ["created_at", "2023-08-28 18:00:20.477333"], ["updated_at", "2023-08-28 18:00:20.477333"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.5ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Ring of Bright Water"], ["publisher", "Pecan Grove Press"], ["num_pages", 308], ["author_id", 4], ["created_at", "2023-08-28 18:00:20.482612"], ["updated_at", "2023-08-28 18:00:20.482612"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.5ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Specimen Days"], ["publisher", "Manning Publications"], ["num_pages", 66], ["author_id", 17], ["created_at", "2023-08-28 18:00:20.488310"], ["updated_at", "2023-08-28 18:00:20.488310"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Fear and Trembling"], ["publisher", "Medknow Publications"], ["num_pages", 104], ["author_id", 11], ["created_at", "2023-08-28 18:00:20.494635"], ["updated_at", "2023-08-28 18:00:20.494635"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Brandy of the Damned"], ["publisher", "Simon & Schuster"], ["num_pages", 185], ["author_id", 4], ["created_at", "2023-08-28 18:00:20.500558"], ["updated_at", "2023-08-28 18:00:20.500558"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.3ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Last Temptation"], ["publisher", "Eel Pie Publishing"], ["num_pages", 247], ["author_id", 10], ["created_at", "2023-08-28 18:00:20.509642"], ["updated_at", "2023-08-28 18:00:20.509642"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.5ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "It's a Battlefield"], ["publisher", "Schocken Books"], ["num_pages", 195], ["author_id", 19], ["created_at", "2023-08-28 18:00:20.521214"], ["updated_at", "2023-08-28 18:00:20.521214"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Frequent Hearses"], ["publisher", "FabJob"], ["num_pages", 180], ["author_id", 2], ["created_at", "2023-08-28 18:00:20.527730"], ["updated_at", "2023-08-28 18:00:20.527730"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Quo Vadis"], ["publisher", "T & T Clark"], ["num_pages", 279], ["author_id", 11], ["created_at", "2023-08-28 18:00:20.532630"], ["updated_at", "2023-08-28 18:00:20.532630"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Tender Is the Night"], ["publisher", "Andrews McMeel Publishing"], ["num_pages", 460], ["author_id", 3], ["created_at", "2023-08-28 18:00:20.548241"], ["updated_at", "2023-08-28 18:00:20.548241"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.5ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "That Hideous Strength"], ["publisher", "Horizon Scientific Press"], ["num_pages", 134], ["author_id", 11], ["created_at", "2023-08-28 18:00:20.557231"], ["updated_at", "2023-08-28 18:00:20.557231"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.9ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "To Say Nothing of the Dog"], ["publisher", "Focal Press"], ["num_pages", 344], ["author_id", 9], ["created_at", "2023-08-28 18:00:20.564984"], ["updated_at", "2023-08-28 18:00:20.564984"]]
+  [1m[36mTRANSACTION (8.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.5ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Ego Dominus Tuus"], ["publisher", "Elsevier"], ["num_pages", 230], ["author_id", 9], ["created_at", "2023-08-28 18:00:20.586996"], ["updated_at", "2023-08-28 18:00:20.586996"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Way Through the Woods"], ["publisher", "Shoemaker & Hoard Publishers"], ["num_pages", 253], ["author_id", 11], ["created_at", "2023-08-28 18:00:20.595684"], ["updated_at", "2023-08-28 18:00:20.595684"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Of Mice and Men"], ["publisher", "Tate Publishing & Enterprises"], ["num_pages", 275], ["author_id", 3], ["created_at", "2023-08-28 18:00:20.609823"], ["updated_at", "2023-08-28 18:00:20.609823"]]
+  [1m[36mTRANSACTION (6.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.1ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Behold the Man"], ["publisher", "Casemate Publishers"], ["num_pages", 70], ["author_id", 17], ["created_at", "2023-08-28 18:00:20.634742"], ["updated_at", "2023-08-28 18:00:20.634742"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (8.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Precious Bane"], ["publisher", "Parragon"], ["num_pages", 285], ["author_id", 13], ["created_at", "2023-08-28 18:00:20.769047"], ["updated_at", "2023-08-28 18:00:20.769047"]]
+  [1m[36mTRANSACTION (7.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Monkey's Raincoat"], ["publisher", "Blackstaff Press"], ["num_pages", 410], ["author_id", 16], ["created_at", "2023-08-28 18:00:20.814686"], ["updated_at", "2023-08-28 18:00:20.814686"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.3ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Edna O'Brien"], ["publisher", "Brill"], ["num_pages", 104], ["author_id", 6], ["created_at", "2023-08-28 18:00:20.843577"], ["updated_at", "2023-08-28 18:00:20.843577"]]
+  [1m[36mTRANSACTION (6.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Now Sleeps the Crimson Petal"], ["publisher", "Mascot Books"], ["num_pages", 155], ["author_id", 9], ["created_at", "2023-08-28 18:00:20.901124"], ["updated_at", "2023-08-28 18:00:20.901124"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Great Work of Time"], ["publisher", "Black Library"], ["num_pages", 283], ["author_id", 2], ["created_at", "2023-08-28 18:00:20.919334"], ["updated_at", "2023-08-28 18:00:20.919334"]]
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.5ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "From Here to Eternity"], ["publisher", "Unfinished Monument Press"], ["num_pages", 378], ["author_id", 7], ["created_at", "2023-08-28 18:00:20.939755"], ["updated_at", "2023-08-28 18:00:20.939755"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Way Through the Woods"], ["publisher", "Tammi"], ["num_pages", 402], ["author_id", 16], ["created_at", "2023-08-28 18:00:20.957263"], ["updated_at", "2023-08-28 18:00:20.957263"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Surprised by Joy"], ["publisher", "Mark Batty Publisher"], ["num_pages", 347], ["author_id", 19], ["created_at", "2023-08-28 18:00:20.963407"], ["updated_at", "2023-08-28 18:00:20.963407"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Moving Toyshop"], ["publisher", "G. P. Putnam's Sons"], ["num_pages", 41], ["author_id", 15], ["created_at", "2023-08-28 18:00:20.971043"], ["updated_at", "2023-08-28 18:00:20.971043"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.9ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Skull Beneath the Skin"], ["publisher", "Jaico Publishing House"], ["num_pages", 451], ["author_id", 15], ["created_at", "2023-08-28 18:00:20.981942"], ["updated_at", "2023-08-28 18:00:20.981942"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Clouds of Witness"], ["publisher", "Parachute Publishing"], ["num_pages", 408], ["author_id", 3], ["created_at", "2023-08-28 18:00:20.990183"], ["updated_at", "2023-08-28 18:00:20.990183"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.5ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Daffodil Sky"], ["publisher", "Holland Park Press"], ["num_pages", 288], ["author_id", 2], ["created_at", "2023-08-28 18:00:20.999480"], ["updated_at", "2023-08-28 18:00:20.999480"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "A Passage to India"], ["publisher", "Voyager Books"], ["num_pages", 348], ["author_id", 10], ["created_at", "2023-08-28 18:00:21.005062"], ["updated_at", "2023-08-28 18:00:21.005062"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Wives of Bath"], ["publisher", "HarperCollins"], ["num_pages", 83], ["author_id", 5], ["created_at", "2023-08-28 18:00:21.013724"], ["updated_at", "2023-08-28 18:00:21.013724"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.5ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Proper Study"], ["publisher", "Harper & Row"], ["num_pages", 79], ["author_id", 3], ["created_at", "2023-08-28 18:00:21.022633"], ["updated_at", "2023-08-28 18:00:21.022633"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.8ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Françoise Sagan"], ["publisher", "Manchester University Press"], ["num_pages", 317], ["author_id", 19], ["created_at", "2023-08-28 18:00:21.034637"], ["updated_at", "2023-08-28 18:00:21.034637"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.5ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Absalom, Absalom!"], ["publisher", "Atheneum Books"], ["num_pages", 216], ["author_id", 11], ["created_at", "2023-08-28 18:00:21.040513"], ["updated_at", "2023-08-28 18:00:21.040513"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "A Time to Kill"], ["publisher", "Chatto and Windus"], ["num_pages", 216], ["author_id", 17], ["created_at", "2023-08-28 18:00:21.065386"], ["updated_at", "2023-08-28 18:00:21.065386"]]
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Soldier's Art"], ["publisher", "Edupedia Publications"], ["num_pages", 205], ["author_id", 2], ["created_at", "2023-08-28 18:00:21.075868"], ["updated_at", "2023-08-28 18:00:21.075868"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.5ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "To Say Nothing of the Dog"], ["publisher", "Hogarth Press"], ["num_pages", 334], ["author_id", 14], ["created_at", "2023-08-28 18:00:21.095992"], ["updated_at", "2023-08-28 18:00:21.095992"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.5ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Dulce et Decorum Est"], ["publisher", "Barrie & Jenkins"], ["num_pages", 386], ["author_id", 20], ["created_at", "2023-08-28 18:00:21.104758"], ["updated_at", "2023-08-28 18:00:21.104758"]]
+  [1m[36mTRANSACTION (7.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "I Will Fear No Evil"], ["publisher", "BBC Books"], ["num_pages", 137], ["author_id", 20], ["created_at", "2023-08-28 18:00:21.127862"], ["updated_at", "2023-08-28 18:00:21.127862"]]
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.0ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Last Enemy"], ["publisher", "Random House"], ["num_pages", 71], ["author_id", 6], ["created_at", "2023-08-28 18:00:21.138387"], ["updated_at", "2023-08-28 18:00:21.138387"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.9ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Shall not Perish"], ["publisher", "Matthias Media"], ["num_pages", 228], ["author_id", 7], ["created_at", "2023-08-28 18:00:21.168971"], ["updated_at", "2023-08-28 18:00:21.168971"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.0ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Vile Bodies"], ["publisher", "Sams Publishing"], ["num_pages", 2], ["author_id", 16], ["created_at", "2023-08-28 18:00:21.177700"], ["updated_at", "2023-08-28 18:00:21.177700"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "In a Glass Darkly"], ["publisher", "University of Minnesota Press"], ["num_pages", 130], ["author_id", 4], ["created_at", "2023-08-28 18:00:21.184446"], ["updated_at", "2023-08-28 18:00:21.184446"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.1ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "This Side of Paradise"], ["publisher", "Farrar, Straus & Giroux"], ["num_pages", 490], ["author_id", 9], ["created_at", "2023-08-28 18:00:21.190534"], ["updated_at", "2023-08-28 18:00:21.190534"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Moab Is My Washpot"], ["publisher", "Jaico Publishing House"], ["num_pages", 465], ["author_id", 1], ["created_at", "2023-08-28 18:00:21.197226"], ["updated_at", "2023-08-28 18:00:21.197226"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.9ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Painted Veil"], ["publisher", "Belknap Press"], ["num_pages", 365], ["author_id", 6], ["created_at", "2023-08-28 18:00:21.203484"], ["updated_at", "2023-08-28 18:00:21.203484"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Other Side of Silence"], ["publisher", "Focal Press"], ["num_pages", 490], ["author_id", 19], ["created_at", "2023-08-28 18:00:21.215405"], ["updated_at", "2023-08-28 18:00:21.215405"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.1ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "A Scanner Darkly"], ["publisher", "Salt Publishing"], ["num_pages", 391], ["author_id", 2], ["created_at", "2023-08-28 18:00:21.234675"], ["updated_at", "2023-08-28 18:00:21.234675"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (9.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Torment of Others"], ["publisher", "Gefen Publishing House"], ["num_pages", 272], ["author_id", 1], ["created_at", "2023-08-28 18:00:21.248413"], ["updated_at", "2023-08-28 18:00:21.248413"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Quo Vadis"], ["publisher", "Viking Press"], ["num_pages", 404], ["author_id", 2], ["created_at", "2023-08-28 18:00:21.299680"], ["updated_at", "2023-08-28 18:00:21.299680"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.9ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Green Bay Tree"], ["publisher", "George H. Doran Company"], ["num_pages", 27], ["author_id", 14], ["created_at", "2023-08-28 18:00:21.448816"], ["updated_at", "2023-08-28 18:00:21.448816"]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.0ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "O Pioneers!"], ["publisher", "Hay House"], ["num_pages", 232], ["author_id", 16], ["created_at", "2023-08-28 18:00:21.487729"], ["updated_at", "2023-08-28 18:00:21.487729"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "A Summer Bird-Cage"], ["publisher", "Virago Press"], ["num_pages", 145], ["author_id", 12], ["created_at", "2023-08-28 18:00:21.506322"], ["updated_at", "2023-08-28 18:00:21.506322"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Blood's a Rover"], ["publisher", "NavPress"], ["num_pages", 359], ["author_id", 4], ["created_at", "2023-08-28 18:00:21.512274"], ["updated_at", "2023-08-28 18:00:21.512274"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The House of Mirth"], ["publisher", "Haynes Manuals"], ["num_pages", 335], ["author_id", 20], ["created_at", "2023-08-28 18:00:21.519408"], ["updated_at", "2023-08-28 18:00:21.519408"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.9ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "To a God Unknown"], ["publisher", "Book League of America"], ["num_pages", 4], ["author_id", 14], ["created_at", "2023-08-28 18:00:21.534276"], ["updated_at", "2023-08-28 18:00:21.534276"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.0ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "No Country for Old Men"], ["publisher", "Airiti Press"], ["num_pages", 357], ["author_id", 10], ["created_at", "2023-08-28 18:00:21.547495"], ["updated_at", "2023-08-28 18:00:21.547495"]]
+  [1m[36mTRANSACTION (13.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.8ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Skull Beneath the Skin"], ["publisher", "Farrar, Straus & Giroux"], ["num_pages", 132], ["author_id", 7], ["created_at", "2023-08-28 18:00:21.568667"], ["updated_at", "2023-08-28 18:00:21.568667"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.3ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Dulce et Decorum Est"], ["publisher", "HarperPrism"], ["num_pages", 436], ["author_id", 11], ["created_at", "2023-08-28 18:00:21.602905"], ["updated_at", "2023-08-28 18:00:21.602905"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.3ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Ah, Wilderness!"], ["publisher", "Virgin Publishing"], ["num_pages", 482], ["author_id", 12], ["created_at", "2023-08-28 18:00:21.620987"], ["updated_at", "2023-08-28 18:00:21.620987"]]
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.8ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Precious Bane"], ["publisher", "T & T Clark"], ["num_pages", 394], ["author_id", 16], ["created_at", "2023-08-28 18:00:21.634986"], ["updated_at", "2023-08-28 18:00:21.634986"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Those Barren Leaves, Thrones, Dominations"], ["publisher", "Jarrolds Publishing"], ["num_pages", 32], ["author_id", 4], ["created_at", "2023-08-28 18:00:21.642005"], ["updated_at", "2023-08-28 18:00:21.642005"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Many Waters"], ["publisher", "University of Michigan Press"], ["num_pages", 47], ["author_id", 17], ["created_at", "2023-08-28 18:00:21.657819"], ["updated_at", "2023-08-28 18:00:21.657819"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.8ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Vile Bodies"], ["publisher", "Unfinished Monument Press"], ["num_pages", 84], ["author_id", 15], ["created_at", "2023-08-28 18:00:21.666413"], ["updated_at", "2023-08-28 18:00:21.666413"]]
+  [1m[36mTRANSACTION (10.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (4.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Death Be Not Proud"], ["publisher", "Tate Publishing & Enterprises"], ["num_pages", 440], ["author_id", 12], ["created_at", "2023-08-28 18:00:21.707496"], ["updated_at", "2023-08-28 18:00:21.707496"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (2.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Lathe of Heaven"], ["publisher", "Charles Scribner's Sons"], ["num_pages", 47], ["author_id", 17], ["created_at", "2023-08-28 18:00:21.729250"], ["updated_at", "2023-08-28 18:00:21.729250"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.0ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "In Death Ground"], ["publisher", "George Newnes"], ["num_pages", 111], ["author_id", 18], ["created_at", "2023-08-28 18:00:21.750793"], ["updated_at", "2023-08-28 18:00:21.750793"]]
+  [1m[36mTRANSACTION (5.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "A Passage to India"], ["publisher", "Vintage Books"], ["num_pages", 104], ["author_id", 7], ["created_at", "2023-08-28 18:00:21.774985"], ["updated_at", "2023-08-28 18:00:21.774985"]]
+  [1m[36mTRANSACTION (31.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (7.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "A Monstrous Regiment of Women"], ["publisher", "Black Sparrow Books"], ["num_pages", 499], ["author_id", 12], ["created_at", "2023-08-28 18:00:21.828576"], ["updated_at", "2023-08-28 18:00:21.828576"]]
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Everything is Illuminated"], ["publisher", "McGraw-Hill Education"], ["num_pages", 58], ["author_id", 11], ["created_at", "2023-08-28 18:00:21.845672"], ["updated_at", "2023-08-28 18:00:21.845672"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.8ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Look Homeward, Angel"], ["publisher", "Tate Publishing & Enterprises"], ["num_pages", 486], ["author_id", 1], ["created_at", "2023-08-28 18:00:21.850820"], ["updated_at", "2023-08-28 18:00:21.850820"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Some Buried Caesar"], ["publisher", "United States Government Publishing Office"], ["num_pages", 124], ["author_id", 12], ["created_at", "2023-08-28 18:00:21.907938"], ["updated_at", "2023-08-28 18:00:21.907938"]]
+  [1m[36mTRANSACTION (9.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.8ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "To Say Nothing of the Dog"], ["publisher", "Brill"], ["num_pages", 452], ["author_id", 12], ["created_at", "2023-08-28 18:00:21.942550"], ["updated_at", "2023-08-28 18:00:21.942550"]]
+  [1m[36mTRANSACTION (7.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.9ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "To Your Scattered Bodies Go"], ["publisher", "Adis International"], ["num_pages", 322], ["author_id", 4], ["created_at", "2023-08-28 18:00:21.978987"], ["updated_at", "2023-08-28 18:00:21.978987"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (12.0ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Specimen Days"], ["publisher", "Basic Books"], ["num_pages", 484], ["author_id", 2], ["created_at", "2023-08-28 18:00:22.009954"], ["updated_at", "2023-08-28 18:00:22.009954"]]
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The World, the Flesh and the Devil"], ["publisher", "Lion Hudson"], ["num_pages", 368], ["author_id", 10], ["created_at", "2023-08-28 18:00:22.050484"], ["updated_at", "2023-08-28 18:00:22.050484"]]
+  [1m[36mTRANSACTION (11.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Frequent Hearses"], ["publisher", "Breslov Research Institute"], ["num_pages", 423], ["author_id", 10], ["created_at", "2023-08-28 18:00:22.089909"], ["updated_at", "2023-08-28 18:00:22.089909"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Moon by Night"], ["publisher", "Velazquez Press"], ["num_pages", 263], ["author_id", 20], ["created_at", "2023-08-28 18:00:22.111227"], ["updated_at", "2023-08-28 18:00:22.111227"]]
+  [1m[36mTRANSACTION (13.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.9ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Heart Is Deceitful Above All Things"], ["publisher", "Paulist Press"], ["num_pages", 500], ["author_id", 17], ["created_at", "2023-08-28 18:00:22.128738"], ["updated_at", "2023-08-28 18:00:22.128738"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "A Monstrous Regiment of Women"], ["publisher", "Black Dog Publishing"], ["num_pages", 150], ["author_id", 12], ["created_at", "2023-08-28 18:00:22.149936"], ["updated_at", "2023-08-28 18:00:22.149936"]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Moving Finger"], ["publisher", "Lion Hudson"], ["num_pages", 39], ["author_id", 16], ["created_at", "2023-08-28 18:00:22.195554"], ["updated_at", "2023-08-28 18:00:22.195554"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.2ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Golden Apples of the Sun"], ["publisher", "Libertas Academica"], ["num_pages", 119], ["author_id", 7], ["created_at", "2023-08-28 18:00:22.201607"], ["updated_at", "2023-08-28 18:00:22.201607"]]
+  [1m[36mTRANSACTION (10.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Last Enemy"], ["publisher", "Athabasca University Press"], ["num_pages", 66], ["author_id", 10], ["created_at", "2023-08-28 18:00:22.242442"], ["updated_at", "2023-08-28 18:00:22.242442"]]
+  [1m[36mTRANSACTION (6.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.5ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Little Foxes"], ["publisher", "Brill"], ["num_pages", 146], ["author_id", 20], ["created_at", "2023-08-28 18:00:22.259883"], ["updated_at", "2023-08-28 18:00:22.259883"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Monkey's Raincoat"], ["publisher", "D. Reidel"], ["num_pages", 474], ["author_id", 12], ["created_at", "2023-08-28 18:00:22.265820"], ["updated_at", "2023-08-28 18:00:22.265820"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (1.5ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Arms and the Man"], ["publisher", "Marshall Cavendish"], ["num_pages", 219], ["author_id", 9], ["created_at", "2023-08-28 18:00:22.294733"], ["updated_at", "2023-08-28 18:00:22.294733"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "publisher", "num_pages", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "In Dubious Battle"], ["publisher", "George H. Doran Company"], ["num_pages", 439], ["author_id", 5], ["created_at", "2023-08-28 18:00:22.313406"], ["updated_at", "2023-08-28 18:00:22.313406"]]
+  [1m[36mTRANSACTION (6.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT "books".* FROM "books" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/" for ::1 at 2023-08-28 11:05:48 -0700
+  [1m[35m (14.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/christian.nally/.rvm/gems/ruby-2.7.2/gems/railties-6.1.7.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/christian.nally/.rvm/gems/ruby-2.7.2/gems/railties-6.1.7.6/lib/rails/templates/rails/welcome/index.html.erb (Duration: 131.9ms | Allocations: 445)
+Completed 200 OK in 270ms (Views: 189.7ms | ActiveRecord: 0.0ms | Allocations: 3647)
+
+
+Started GET "/fdsahfjdsgahjf" for ::1 at 2023-08-28 11:06:04 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/fdsahfjdsgahjf"):
+  
+Started GET "/fdsahfjdsgahjf" for ::1 at 2023-08-28 11:08:40 -0700
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/fdsahfjdsgahjf"):
+  
+Started GET "/fdsahfjdsgahjf" for ::1 at 2023-08-28 11:10:50 -0700
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/fdsahfjdsgahjf"):
+  
+Started GET "/authors" for ::1 at 2023-08-28 11:14:16 -0700
+  
+ActionController::RoutingError (uninitialized constant AuthorsController):
+  
+Started GET "/authors" for ::1 at 2023-08-28 11:27:58 -0700
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/index.html.erb within layouts/application
+  Rendered authors/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 226)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+node:internal/process/promises:245
+          triggerUncaughtException(err, true /* fromPromise */);
+          ^
+
+Error: Cannot find package '@babel/plugin-proposal-private-methods' imported from /Users/christian.nally/lighthouse/web-dev-bootcamp/repos/cohorts/jun26-2023-b/w10d1/library/babel-virtual-resolve-base.js
+    at new NodeError (/Users/christian.nally/lighthouse/web-dev-bootcamp/repos/cohorts/jun26-2023-b/w10d1/library/node_modules/@babel/core/lib/vendor/import-meta-resolve.js:203:5)
+    at packageResolve (/Users/christian.nally/lighthouse/web-dev-bootcamp/repos/cohorts/jun26-2023-b/w10d1/library/node_modules/@babel/core/lib/vendor/import-meta-resolve.js:873:9)
+    at moduleResolve (/Users/christian.nally/lighthouse/web-dev-bootcamp/repos/cohorts/jun26-2023-b/w10d1/library/node_modules/@babel/core/lib/vendor/import-meta-resolve.js:902:20)
+    at defaultResolve (/Users/christian.nally/lighthouse/web-dev-bootcamp/repos/cohorts/jun26-2023-b/w10d1/library/node_modules/@babel/core/lib/vendor/import-meta-resolve.js:985:15)
+    at resolve (/Users/christian.nally/lighthouse/web-dev-bootcamp/repos/cohorts/jun26-2023-b/w10d1/library/node_modules/@babel/core/lib/vendor/import-meta-resolve.js:999:12)
+    at resolve (/Users/christian.nally/lighthouse/web-dev-bootcamp/repos/cohorts/jun26-2023-b/w10d1/library/node_modules/@babel/core/lib/config/files/import-meta-resolve.js:13:10)
+    at tryImportMetaResolve (/Users/christian.nally/lighthouse/web-dev-bootcamp/repos/cohorts/jun26-2023-b/w10d1/library/node_modules/@babel/core/lib/config/files/plugins.js:137:45)
+    at resolveStandardizedNameForImport (/Users/christian.nally/lighthouse/web-dev-bootcamp/repos/cohorts/jun26-2023-b/w10d1/library/node_modules/@babel/core/lib/config/files/plugins.js:159:19)
+    at resolveStandardizedName (/Users/christian.nally/lighthouse/web-dev-bootcamp/repos/cohorts/jun26-2023-b/w10d1/library/node_modules/@babel/core/lib/config/files/plugins.js:168:12)
+    at loadPlugin (/Users/christian.nally/lighthouse/web-dev-bootcamp/repos/cohorts/jun26-2023-b/w10d1/library/node_modules/@babel/core/lib/config/files/plugins.js:47:20)
+    at loadPlugin.next (<anonymous>)
+    at createDescriptor (/Users/christian.nally/lighthouse/web-dev-bootcamp/repos/cohorts/jun26-2023-b/w10d1/library/node_modules/@babel/core/lib/config/config-descriptors.js:140:16)
+    at createDescriptor.next (<anonymous>)
+    at step (/Users/christian.nally/lighthouse/web-dev-bootcamp/repos/cohorts/jun26-2023-b/w10d1/library/node_modules/gensync/index.js:261:32)
+    at evaluateAsync (/Users/christian.nally/lighthouse/web-dev-bootcamp/repos/cohorts/jun26-2023-b/w10d1/library/node_modules/gensync/index.js:291:5)
+    at /Users/christian.nally/lighthouse/web-dev-bootcamp/repos/cohorts/jun26-2023-b/w10d1/library/node_modules/gensync/index.js:44:11
+    at Array.forEach (<anonymous>)
+    at Function.async (/Users/christian.nally/lighthouse/web-dev-bootcamp/repos/cohorts/jun26-2023-b/w10d1/library/node_modules/gensync/index.js:43:15)
+    at Function.all (/Users/christian.nally/lighthouse/web-dev-bootcamp/repos/cohorts/jun26-2023-b/w10d1/library/node_modules/gensync/index.js:216:13)
+    at Generator.next (<anonymous>)
+    at createDescriptors (/Users/christian.nally/lighthouse/web-dev-bootcamp/repos/cohorts/jun26-2023-b/w10d1/library/node_modules/@babel/core/lib/config/config-descriptors.js:102:41)
+    at createDescriptors.next (<anonymous>)
+    at createPluginDescriptors (/Users/christian.nally/lighthouse/web-dev-bootcamp/repos/cohorts/jun26-2023-b/w10d1/library/node_modules/@babel/core/lib/config/config-descriptors.js:99:17)
+    at createPluginDescriptors.next (<anonymous>)
+    at /Users/christian.nally/lighthouse/web-dev-bootcamp/repos/cohorts/jun26-2023-b/w10d1/library/node_modules/@babel/core/lib/gensync-utils/functional.js:21:23
+    at Generator.next (<anonymous>)
+    at mergeChainOpts (/Users/christian.nally/lighthouse/web-dev-bootcamp/repos/cohorts/jun26-2023-b/w10d1/library/node_modules/@babel/core/lib/config/config-chain.js:350:34)
+    at mergeChainOpts.next (<anonymous>)
+    at chainWalker (/Users/christian.nally/lighthouse/web-dev-bootcamp/repos/cohorts/jun26-2023-b/w10d1/library/node_modules/@babel/core/lib/config/config-chain.js:317:14)
+    at chainWalker.next (<anonymous>)
+    at loadFileChain (/Users/christian.nally/lighthouse/web-dev-bootcamp/repos/cohorts/jun26-2023-b/w10d1/library/node_modules/@babel/core/lib/config/config-chain.js:192:24)
+    at loadFileChain.next (<anonymous>)
+    at buildRootChain (/Users/christian.nally/lighthouse/web-dev-bootcamp/repos/cohorts/jun26-2023-b/w10d1/library/node_modules/@babel/core/lib/config/config-chain.js:78:27)
+    at buildRootChain.next (<anonymous>)
+    at loadPrivatePartialConfig (/Users/christian.nally/lighthouse/web-dev-bootcamp/repos/cohorts/jun26-2023-b/w10d1/library/node_modules/@babel/core/lib/config/partial.js:72:62)
+    at loadPrivatePartialConfig.next (<anonymous>)
+    at loadPartialConfig (/Users/christian.nally/lighthouse/web-dev-bootcamp/repos/cohorts/jun26-2023-b/w10d1/library/node_modules/@babel/core/lib/config/partial.js:115:25)
+    at loadPartialConfig.next (<anonymous>)
+    at step (/Users/christian.nally/lighthouse/web-dev-bootcamp/repos/cohorts/jun26-2023-b/w10d1/library/node_modules/gensync/index.js:269:25)
+    at evaluateAsync (/Users/christian.nally/lighthouse/web-dev-bootcamp/repos/cohorts/jun26-2023-b/w10d1/library/node_modules/gensync/index.js:291:5)
+    at /Users/christian.nally/lighthouse/web-dev-bootcamp/repos/cohorts/jun26-2023-b/w10d1/library/node_modules/gensync/index.js:93:9
+    at new Promise (<anonymous>)
+    at async (/Users/christian.nally/lighthouse/web-dev-bootcamp/repos/cohorts/jun26-2023-b/w10d1/library/node_modules/gensync/index.js:92:14)
+    at stopHiding - secret - don't use this - v1 (/Users/christian.nally/lighthouse/web-dev-bootcamp/repos/cohorts/jun26-2023-b/w10d1/library/node_modules/@babel/core/lib/errors/rewrite-stack-trace.js:47:12)
+    at loadPartialConfigAsync (/Users/christian.nally/lighthouse/web-dev-bootcamp/repos/cohorts/jun26-2023-b/w10d1/library/node_modules/@babel/core/lib/config/index.js:34:85)
+    at Object.<anonymous> (/Users/christian.nally/lighthouse/web-dev-bootcamp/repos/cohorts/jun26-2023-b/w10d1/library/node_modules/babel-loader/lib/index.js:126:26)
+    at Generator.next (<anonymous>)
+    at asyncGeneratorStep (/Users/christian.nally/lighthouse/web-dev-bootcamp/repos/cohorts/jun26-2023-b/w10d1/library/node_modules/babel-loader/lib/index.js:3:103)
+    at _next (/Users/christian.nally/lighthouse/web-dev-bootcamp/repos/cohorts/jun26-2023-b/w10d1/library/node_modules/babel-loader/lib/index.js:4:194)
+    at /Users/christian.nally/lighthouse/web-dev-bootcamp/repos/cohorts/jun26-2023-b/w10d1/library/node_modules/babel-loader/lib/index.js:4:364 {
+  code: 'ERR_MODULE_NOT_FOUND'
+}
+
+  Rendered layout layouts/application.html.erb (Duration: 13510.6ms | Allocations: 22780)
+Completed 200 OK in 13611ms (Views: 13545.6ms | ActiveRecord: 0.0ms | Allocations: 26764)
+
+
+Started GET "/packs/js/application-ffd6a1f714f97850d691.js" for ::1 at 2023-08-28 11:28:13 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/packs/js/application-ffd6a1f714f97850d691.js"):
+  
+Started GET "/authors" for ::1 at 2023-08-28 11:31:51 -0700
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/authors/index.html.erb:2
+  Rendered authors/index.html.erb within layouts/application (Duration: 66.4ms | Allocations: 3754)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 221.9ms | Allocations: 9814)
+Completed 200 OK in 261ms (Views: 230.2ms | ActiveRecord: 1.6ms | Allocations: 13855)
+
+
+Started GET "/packs/js/application-ffd6a1f714f97850d691.js" for ::1 at 2023-08-28 11:31:52 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/packs/js/application-ffd6a1f714f97850d691.js"):
+  
+Started GET "/books" for ::1 at 2023-08-28 11:34:11 -0700
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:2
+  Rendered books/index.html.erb within layouts/application (Duration: 33.8ms | Allocations: 7500)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 126.2ms | Allocations: 13560)
+Completed 200 OK in 244ms (Views: 135.0ms | ActiveRecord: 1.7ms | Allocations: 17336)
+
+
+Started GET "/packs/js/application-ffd6a1f714f97850d691.js" for ::1 at 2023-08-28 11:34:11 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/packs/js/application-ffd6a1f714f97850d691.js"):
+  
+Started GET "/asdfasdfsda" for ::1 at 2023-08-28 11:35:08 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/asdfasdfsda"):
+  
+Started GET "/asdfasdfsda" for ::1 at 2023-08-28 11:38:35 -0700
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/asdfasdfsda"):
+  
+Started GET "/author/5/books" for ::1 at 2023-08-28 11:47:26 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/author/5/books"):
+  
+Started GET "/authors/5/books" for ::1 at 2023-08-28 11:47:39 -0700
+Processing by BooksController#index as HTML
+  Parameters: {"author_id"=>"5"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/books_controller.rb:3:in `index'
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:3:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."author_id" = ?[0m  [["author_id", 5]]
+  ↳ app/views/books/index.html.erb:3
+  Rendered books/index.html.erb within layouts/application (Duration: 121.5ms | Allocations: 6039)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 297.5ms | Allocations: 12003)
+Completed 200 OK in 618ms (Views: 344.8ms | ActiveRecord: 4.9ms | Allocations: 23046)
+
+
+Started GET "/packs/js/application-ffd6a1f714f97850d691.js" for ::1 at 2023-08-28 11:47:40 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/packs/js/application-ffd6a1f714f97850d691.js"):
+  
+Started GET "/authors/6/books" for ::1 at 2023-08-28 11:47:55 -0700
+Processing by BooksController#index as HTML
+  Parameters: {"author_id"=>"6"}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:3:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."author_id" = ?[0m  [["author_id", 6]]
+  ↳ app/views/books/index.html.erb:3
+  Rendered books/index.html.erb within layouts/application (Duration: 55.1ms | Allocations: 880)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 204.9ms | Allocations: 4561)
+Completed 200 OK in 213ms (Views: 205.6ms | ActiveRecord: 0.4ms | Allocations: 5520)
+
+
+Started GET "/packs/js/application-ffd6a1f714f97850d691.js" for ::1 at 2023-08-28 11:47:55 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/packs/js/application-ffd6a1f714f97850d691.js"):
+  
+Started GET "/authors/7/books" for ::1 at 2023-08-28 11:48:01 -0700
+Processing by BooksController#index as HTML
+  Parameters: {"author_id"=>"7"}
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:3:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."author_id" = ?[0m  [["author_id", 7]]
+  ↳ app/views/books/index.html.erb:3
+  Rendered books/index.html.erb within layouts/application (Duration: 92.2ms | Allocations: 1023)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 169.4ms | Allocations: 4716)
+Completed 200 OK in 216ms (Views: 181.7ms | ActiveRecord: 0.9ms | Allocations: 5655)
+
+
+Started GET "/packs/js/application-ffd6a1f714f97850d691.js" for ::1 at 2023-08-28 11:48:01 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/packs/js/application-ffd6a1f714f97850d691.js"):
+  
+Started GET "/afdasfda" for ::1 at 2023-08-28 11:50:02 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/afdasfda"):
+  
+Started GET "/authors/7/books" for ::1 at 2023-08-28 11:51:41 -0700
+Processing by BooksController#index as HTML
+  Parameters: {"author_id"=>"7"}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:3:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."author_id" = ?[0m  [["author_id", 7]]
+  ↳ app/views/books/index.html.erb:3
+  Rendered books/index.html.erb within layouts/application (Duration: 22.8ms | Allocations: 1222)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 81.0ms | Allocations: 5087)
+Completed 200 OK in 146ms (Views: 94.2ms | ActiveRecord: 0.5ms | Allocations: 6775)
+
+
+Started GET "/packs/js/application-ffd6a1f714f97850d691.js" for ::1 at 2023-08-28 11:51:43 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/packs/js/application-ffd6a1f714f97850d691.js"):
+  
+Started GET "/authors" for ::1 at 2023-08-28 11:52:00 -0700
+Processing by AuthorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/authors/index.html.erb:2
+  Rendered authors/index.html.erb within layouts/application (Duration: 16.4ms | Allocations: 1116)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 131.5ms | Allocations: 4773)
+Completed 200 OK in 235ms (Views: 163.1ms | ActiveRecord: 0.4ms | Allocations: 5666)
+
+
+Started GET "/packs/js/application-ffd6a1f714f97850d691.js" for ::1 at 2023-08-28 11:52:01 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/packs/js/application-ffd6a1f714f97850d691.js"):
+  
+Started GET "/authors/7/books" for ::1 at 2023-08-28 11:52:05 -0700
+Processing by BooksController#index as HTML
+  Parameters: {"author_id"=>"7"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:3:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."author_id" = ?[0m  [["author_id", 7]]
+  ↳ app/views/books/index.html.erb:3
+  Rendered books/index.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1064)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 105.1ms | Allocations: 4761)
+Completed 200 OK in 115ms (Views: 106.4ms | ActiveRecord: 0.5ms | Allocations: 5714)
+
+
+Started GET "/packs/js/application-ffd6a1f714f97850d691.js" for ::1 at 2023-08-28 11:52:06 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/packs/js/application-ffd6a1f714f97850d691.js"):
+  
+Started GET "/authors/6/books" for ::1 at 2023-08-28 11:52:18 -0700
+Processing by BooksController#index as HTML
+  Parameters: {"author_id"=>"6"}
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:3:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."author_id" = ?[0m  [["author_id", 6]]
+  ↳ app/views/books/index.html.erb:3
+  Rendered books/index.html.erb within layouts/application (Duration: 188.7ms | Allocations: 914)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 277.6ms | Allocations: 4605)
+Completed 200 OK in 324ms (Views: 309.7ms | ActiveRecord: 0.7ms | Allocations: 5544)
+
+
+Started GET "/packs/js/application-ffd6a1f714f97850d691.js" for ::1 at 2023-08-28 11:52:19 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/packs/js/application-ffd6a1f714f97850d691.js"):
+  
+Started GET "/authors" for ::1 at 2023-08-28 11:52:22 -0700
+Processing by AuthorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/authors/index.html.erb:2
+  Rendered authors/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 974)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 66.0ms | Allocations: 4666)
+Completed 200 OK in 76ms (Views: 74.6ms | ActiveRecord: 0.3ms | Allocations: 5063)
+
+
+Started GET "/packs/js/application-ffd6a1f714f97850d691.js" for ::1 at 2023-08-28 11:52:22 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/packs/js/application-ffd6a1f714f97850d691.js"):
+  
+Started GET "/fdasfd" for ::1 at 2023-08-28 11:53:39 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/fdasfd"):
+  
+Started GET "/authors" for ::1 at 2023-08-28 11:54:34 -0700
+Processing by AuthorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/authors/index.html.erb:2
+  Rendered authors/index.html.erb within layouts/application (Duration: 5.9ms | Allocations: 1698)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 77.1ms | Allocations: 5562)
+Completed 200 OK in 89ms (Views: 81.1ms | ActiveRecord: 0.3ms | Allocations: 6686)
+
+
+Started GET "/packs/js/application-ffd6a1f714f97850d691.js" for ::1 at 2023-08-28 11:54:35 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/packs/js/application-ffd6a1f714f97850d691.js"):
+  
+Started GET "/authors/9/books" for ::1 at 2023-08-28 11:54:45 -0700
+Processing by BooksController#index as HTML
+  Parameters: {"author_id"=>"9"}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:3:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."author_id" = ?[0m  [["author_id", 9]]
+  ↳ app/views/books/index.html.erb:3
+  Rendered books/index.html.erb within layouts/application (Duration: 29.0ms | Allocations: 1169)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 69.1ms | Allocations: 4851)
+Completed 200 OK in 110ms (Views: 72.9ms | ActiveRecord: 0.5ms | Allocations: 6291)
+
+
+Started GET "/packs/js/application-ffd6a1f714f97850d691.js" for ::1 at 2023-08-28 11:54:46 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/packs/js/application-ffd6a1f714f97850d691.js"):
+  
+Started GET "/authors" for ::1 at 2023-08-28 11:54:50 -0700
+Processing by AuthorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/authors/index.html.erb:2
+  Rendered authors/index.html.erb within layouts/application (Duration: 9.4ms | Allocations: 1561)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 53.8ms | Allocations: 5255)
+Completed 200 OK in 60ms (Views: 58.0ms | ActiveRecord: 0.2ms | Allocations: 5643)
+
+
+Started GET "/packs/js/application-ffd6a1f714f97850d691.js" for ::1 at 2023-08-28 11:54:50 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/packs/js/application-ffd6a1f714f97850d691.js"):
+  
+Started GET "/authors" for ::1 at 2023-08-28 11:57:57 -0700
+  [1m[35m (10.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthorsController#index as HTML
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/controllers/authors_controller.rb:4:in `index'
+Completed 200 OK in 147ms (Views: 50.7ms | ActiveRecord: 4.5ms | Allocations: 7928)
+
+
+Started GET "/authors/9/books" for ::1 at 2023-08-28 12:04:18 -0700
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BooksController#index as HTML
+  Parameters: {"author_id"=>"9"}
+  [1m[36mAuthor Load (4.9ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:3:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (1.6ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."author_id" = ?[0m  [["author_id", 9]]
+  ↳ app/views/books/index.html.erb:4
+  Rendered collection of books/_book.html.erb [11 times] (Duration: 2.3ms | Allocations: 280)
+  Rendered books/index.html.erb within layouts/application (Duration: 78.7ms | Allocations: 6385)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 149.1ms | Allocations: 12343)
+Completed 200 OK in 432ms (Views: 210.9ms | ActiveRecord: 10.0ms | Allocations: 22030)
+
+
+Started GET "/packs/js/application-ffd6a1f714f97850d691.js" for ::1 at 2023-08-28 12:04:19 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/packs/js/application-ffd6a1f714f97850d691.js"):
+  
