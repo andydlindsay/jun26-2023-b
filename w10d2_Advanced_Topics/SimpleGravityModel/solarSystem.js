@@ -206,7 +206,10 @@ $(document).ready(function () {
     name:'Other', x:200, y:200, Vx:-3, Vy:4.4, mass:1, color:'green', planet: true, trail: true  });
     
   const y = new Planet({ 
-    name: "Sun", mass: 2.5, planet: false, zIndex: -99 
+    name: "Sun",
+    mass: 2.5,
+    planet: false,
+    zIndex: -99 
   });
 
 });
