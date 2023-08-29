@@ -1,0 +1,4 @@
+<h1>Books for <%= "#{@author.first_name} #{@author.last_name}" %></h1>
+<%= link_to 'List of Authors', authors_path  %>
+
+<%= render @books %>
